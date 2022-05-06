@@ -7,4 +7,10 @@ class Engineer extends EmployeeEng {
     this.github = github;
     this.role = "Engineer";
   }
+
+  getGithub() {
+    return this.github;
+  }
 }
+
+module.exports = Engineer;
