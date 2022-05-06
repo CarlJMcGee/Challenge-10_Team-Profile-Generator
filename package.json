@@ -1,4 +1,23 @@
 {
+  "name": "challenge-10_team-profile-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlJMcGee/Challenge-10_Team-Profile-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarlJMcGee/Challenge-10_Team-Profile-Generator/issues"
+  },
   "devDependencies": {
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
@@ -10,5 +29,7 @@
   },
   "dependencies": {
     "inquirer": "^8.2.4"
-  }
+  },
+  "homepage": "https://github.com/CarlJMcGee/Challenge-10_Team-Profile-Generator#readme",
+  "description": ""
 }
