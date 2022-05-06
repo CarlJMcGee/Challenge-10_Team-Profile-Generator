@@ -1,1 +1,7 @@
-module.exports = (managerInfo: object, employeeInfo: object[]) => {};
+module.exports = (teamData: object) => {
+  const { employeesInfo, ...managerInfo } = teamData;
+
+  return `
+
+  `;
+};

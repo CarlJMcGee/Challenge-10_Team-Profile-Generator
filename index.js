@@ -1,9 +1,10 @@
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
+// const Manager = require("./lib/Manager");
+// const Engineer = require("./lib/Engineer");
+// const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
+const createTeam = require("./src/createTeam");
+const generateHTML = require("./src/pageTemplate");
 const promptManager = () => {
-    console.log("--1--");
     console.log(`
     ==========
 Welcome to Team Manager!
@@ -69,9 +70,8 @@ Welcome to Team Manager!
     ]);
 };
 const promptEmployee = function (teamData) {
-    console.log("--3--");
-    if (!teamData.employees) {
-        teamData.employees = [];
+    if (!teamData.employeesData) {
+        teamData.employeesData = [];
     }
     return inquirer
         .prompt([
@@ -253,7 +253,7 @@ const promptEmployee = function (teamData) {
         },
     ])
         .then((employee) => {
-        teamData.employees.push(employee);
+        teamData.employeesData.push(employee);
         if (employee.employeeType !== "No, finalize my team") {
             return promptEmployee(teamData);
         }
@@ -266,5 +266,9 @@ promptManager()
     .then(promptEmployee)
     .then((teamData) => {
     console.log(teamData);
+    return createTeam(teamData);
+})
+    .then((teamObj) => {
+    console.log(teamObj);
+    // return generateHTML(teamObj);
 });
-export {};
