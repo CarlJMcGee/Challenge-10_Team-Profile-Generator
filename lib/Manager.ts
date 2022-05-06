@@ -1,6 +1,6 @@
 const EmployeeMan = require("./Employee.ts");
 
-class Manager extends EmployeeMan {
+class ManagerProto extends EmployeeMan {
   officeNumber: number;
   constructor(name: string, id: number, email: string, officeNumber: number) {
     super(name, id, email);
@@ -13,4 +13,4 @@ class Manager extends EmployeeMan {
   }
 }
 
-module.exports = Manager;
+module.exports = ManagerProto;

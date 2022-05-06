@@ -1,6 +1,6 @@
 const EmployeeEng = require("../lib/Employee");
 
-class Engineer extends EmployeeEng {
+class EngineerProto extends EmployeeEng {
   github: string;
   constructor(name: string, id: number, email: string, github: string) {
     super(name, id, email);
@@ -13,4 +13,4 @@ class Engineer extends EmployeeEng {
   }
 }
 
-module.exports = Engineer;
+module.exports = EngineerProto;
