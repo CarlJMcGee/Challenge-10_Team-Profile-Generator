@@ -68,12 +68,13 @@ Welcome to Team Manager!
         },
     ]);
 };
-const promptEmployee = function () {
+const promptEmployee = function (teamData) {
     console.log("--3--");
-    //   if (!teamData.employees) {
-    //     teamData.employees = [];
-    //   }
-    return inquirer.prompt([
+    if (!teamData.employees) {
+        teamData.employees = [];
+    }
+    return inquirer
+        .prompt([
         {
             type: "list",
             name: "employeeType",
@@ -250,21 +251,20 @@ const promptEmployee = function () {
                 }
             },
         },
-    ]);
-    // .then((employee) => {
-    //   teamData.employees.push(employee);
-    //   if (employee.employeeType !== "No, finalize my team") {
-    //     return promptEmployee(teamData);
-    //   } else {
-    //     return teamData;
-    //   }
-    // })
+    ])
+        .then((employee) => {
+        teamData.employees.push(employee);
+        if (employee.employeeType !== "No, finalize my team") {
+            return promptEmployee(teamData);
+        }
+        else {
+            return teamData;
+        }
+    });
 };
-async function initialize() {
-    let managerInfo = await promptManager();
-    let employeeInfo = await promptEmployee();
-    let teamInfo = [managerInfo, employeeInfo];
-    console.log(teamInfo);
-}
-initialize();
+promptManager()
+    .then(promptEmployee)
+    .then((teamData) => {
+    console.log(teamData);
+});
 export {};
