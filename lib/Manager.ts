@@ -1,6 +1,6 @@
-const EmployeeCon = require("./Employee.ts");
+const EmployeeMan = require("./Employee.ts");
 
-class Manager extends EmployeeCon {
+class Manager extends EmployeeMan {
   officeNumber: number;
   role: string;
   constructor(name: string, id: number, email: string, officeNumber: number) {

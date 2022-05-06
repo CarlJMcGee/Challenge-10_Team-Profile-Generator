@@ -19,4 +19,10 @@ describe("The Manager Constructor", () => {
 
     expect(manager.getRole()).toBe("Manager");
   });
+
+  it("gives manager's name", () => {
+    const manager = new ManagerTest("Ben", eid, email, 9999999999);
+
+    expect(manager.getName()).toBe("Ben");
+  });
 });
