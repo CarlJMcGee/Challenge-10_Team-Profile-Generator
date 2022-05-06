@@ -2,7 +2,6 @@ const EngineerTest = require("../lib/Engineer.ts");
 const randomNumGen = require("../util/random");
 let eid = randomNumGen(1000, 9999);
 let email = "your@e.mail";
-let para = `"Cori", ${eid}, ${email}, "userName"`;
 describe("The Engineer Constructor", () => {
   it("creates and engineer obj", () => {
     const engineer = new EngineerTest("Cori", eid, email, "userName");
