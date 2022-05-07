@@ -265,6 +265,8 @@ promptManager()
   })
   .then((teamObj) => {
     console.log(teamObj);
-
-    // return generateHTML(teamObj);
+    return generateHTML(teamObj);
+  })
+  .then((html) => {
+    console.log(html);
   });
