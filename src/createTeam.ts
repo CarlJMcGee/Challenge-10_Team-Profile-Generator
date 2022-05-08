@@ -28,8 +28,12 @@ module.exports = function ({ employeesData, ...managerInfo }): object[] {
           employee.intSchool
         );
         break;
+
+      case "No, finalize my team":
+        return "end of team";
     }
   });
+  employees.splice(-1, 1);
   const team = [manager, employees];
   return team;
 };

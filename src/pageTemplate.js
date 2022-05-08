@@ -1,6 +1,12 @@
-module.exports = (teamData) => {
-  let [manager, employees] = teamData;
-  return `
+const generateHTML = (teamData) => {
+    let [manager, employees] = teamData;
+    const createCards = function () {
+        employees.forEach((employee) => {
+            console.log(employee.getName());
+        });
+    };
+    createCards();
+    return `
   <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,7 +37,7 @@ module.exports = (teamData) => {
           <h3
             class="column is-full has-text-centered pt-0 mt-0 has-text-white subtitle"
           >
-            ${manager.getRole()}
+            Manager
           </h3>
         </div>
         <div class="column has-text-black is-4 px-0">
@@ -42,7 +48,7 @@ module.exports = (teamData) => {
             <li style="border-bottom: 0.05rem solid #485fc7" class="pl-2">
               Email: ${manager.getEmail()}
             </li>
-            <li class="pl-2">Office Number: {Number}</li>
+            <li class="pl-2">Office Number: ${manager.getPhone()}</li>
           </ul>
         </div>
       </div>
@@ -84,3 +90,4 @@ module.exports = (teamData) => {
 
   `;
 };
+module.exports = generateHTML;

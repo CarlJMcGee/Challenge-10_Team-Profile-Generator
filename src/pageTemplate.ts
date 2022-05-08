@@ -1,5 +1,12 @@
-module.exports = (teamData: object[]) => {
+const generateHTML = (teamData: object[]) => {
   let [manager, employees] = teamData;
+
+  const createCards = function () {
+    employees.forEach((employee) => {
+      console.log(employee.getName());
+    });
+  };
+  createCards();
 
   return `
   <!DOCTYPE html>
@@ -43,7 +50,7 @@ module.exports = (teamData: object[]) => {
             <li style="border-bottom: 0.05rem solid #485fc7" class="pl-2">
               Email: ${manager.getEmail()}
             </li>
-            <li class="pl-2">Office Number: {Number}</li>
+            <li class="pl-2">Office Number: ${manager.getPhone()}</li>
           </ul>
         </div>
       </div>
@@ -85,3 +92,5 @@ module.exports = (teamData: object[]) => {
 
   `;
 };
+
+module.exports = generateHTML;

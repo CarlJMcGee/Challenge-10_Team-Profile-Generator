@@ -11,8 +11,11 @@ module.exports = function ({ employeesData, ...managerInfo }) {
             case "Intern":
                 return new InternClass(employee.intName, employee.intID, employee.intEmail, employee.intSchool);
                 break;
+            case "No, finalize my team":
+                return "end of team";
         }
     });
+    employees.splice(-1, 1);
     const team = [manager, employees];
     return team;
 };
