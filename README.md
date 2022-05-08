@@ -1,4 +1,4 @@
-# Team Manager | CHallenge10
+# Team Manager | Challenge10
 
 [![license badge](https://img.shields.io/badge/license-Mozilla--Public--License--2.0-blue)](#License)
 
