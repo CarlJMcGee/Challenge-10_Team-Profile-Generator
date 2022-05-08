@@ -8,8 +8,8 @@ class Manager extends EmployeeMan {
     this.role = "Manager";
   }
 
-  getRole() {
-    return this.role;
+  getPhone(): number {
+    return this.officeNumber;
   }
 }
 

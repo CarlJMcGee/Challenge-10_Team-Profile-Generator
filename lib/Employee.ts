@@ -16,6 +16,9 @@ class Employee {
   getID(): number {
     return this.id;
   }
+  getEmail(): string {
+    return this.email;
+  }
   getRole(): string {
     return this.role;
   }
