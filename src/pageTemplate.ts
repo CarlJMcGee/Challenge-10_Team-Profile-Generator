@@ -25,9 +25,9 @@ const generateHTML = (teamData: object[]) => {
                   style="border-bottom: 0.05rem solid #485fc7"
                   class="is-size-7 p-3"
                 >
-                  Email: ${employee.getEmail()}
+                  Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a>
                 </li>
-                <li class="is-size-7 p-3">Github: ${employee.getGithub()}</li>
+                <li class="is-size-7 p-3">Github: <a href="https://github.com/${employee.getGithub()}">${employee.getGithub()}</a></li>
               </ul>
             </div>
           </div>
@@ -59,7 +59,7 @@ const generateHTML = (teamData: object[]) => {
                   style="border-bottom: 0.05rem solid #485fc7"
                   class="is-size-7 p-3"
                 >
-                  Email: ${employee.getEmail()}
+                  Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a>
                 </li>
                 <li class="is-size-7 p-3">School: ${employee.getSchool()}</li>
               </ul>
@@ -113,9 +113,9 @@ const generateHTML = (teamData: object[]) => {
               ID: ${manager.getID()}
             </li>
             <li style="border-bottom: 0.05rem solid #485fc7" class="pl-2">
-              Email: ${manager.getEmail()}
+              Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a>
             </li>
-            <li class="pl-2">Office Number: ${manager.getPhone()}</li>
+            <li class="pl-2">Office Number: <a href="tel:+${manager.getPhone()}">${manager.getPhone()}</a></li>
           </ul>
         </div>
       </div>

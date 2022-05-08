@@ -4,6 +4,7 @@
 const inquirer = require("inquirer");
 const createTeam = require("./src/createTeam");
 const generateHTML = require("./src/pageTemplate");
+const createSite = require("./util/createSite");
 const promptManager = () => {
     console.log(`
     ==========
@@ -273,5 +274,5 @@ promptManager()
     return generateHTML(teamObj);
 })
     .then((html) => {
-    console.log(html);
+    return createSite(html);
 });
