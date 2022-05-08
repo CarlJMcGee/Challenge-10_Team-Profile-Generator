@@ -1,12 +1,77 @@
 const generateHTML = (teamData: object[]) => {
   let [manager, employees] = teamData;
 
-  const createCards = function () {
-    employees.forEach((employee) => {
-      console.log(employee.getName());
-    });
+  const createCards = function (employees): string {
+    return `
+    ${employees
+      .filter(({ role }) => role === "Engineer")
+      .map((employee) => {
+        return `
+                <div class="box column is-2 m-4 p-0">
+          <div class="card">
+            <div class="card-header columns has-background-info m-0 is-multiline">
+              <div class="card-header-title column pb-0 is-full">${employee.getName()}</div>
+              <div class="card-header-title column pt-0 is-full">${employee.getRole()}</div>
+            </div>
+            <div class="card-content p-0 has-background-link-light">
+              <ul class="m-0">
+                <li
+                  style="border-bottom: 0.05rem solid #485fc7"
+                  class="is-size-7 p-3"
+                >
+                  ID: ${employee.getID()}
+                </li>
+                <li
+                  style="border-bottom: 0.05rem solid #485fc7"
+                  class="is-size-7 p-3"
+                >
+                  Email: ${employee.getEmail()}
+                </li>
+                <li class="is-size-7 p-3">Github: ${employee.getGithub()}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        `;
+      })
+      .join("")}
+
+    ${employees
+      .filter(({ role }) => role === "Intern")
+      .map((employee) => {
+        return `
+                <div class="box column is-2 m-4 p-0">
+          <div class="card">
+            <div class="card-header columns has-background-info m-0 is-multiline">
+              <div class="card-header-title column pb-0 is-full">${employee.getName()}</div>
+              <div class="card-header-title column pt-0 is-full">${employee.getRole()}</div>
+            </div>
+            <div class="card-content p-0 has-background-link-light">
+              <ul class="m-0">
+                <li
+                  style="border-bottom: 0.05rem solid #485fc7"
+                  class="is-size-7 p-3"
+                >
+                  ID: ${employee.getID()}
+                </li>
+                <li
+                  style="border-bottom: 0.05rem solid #485fc7"
+                  class="is-size-7 p-3"
+                >
+                  Email: ${employee.getEmail()}
+                </li>
+                <li class="is-size-7 p-3">School: ${employee.getSchool()}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        `;
+      })
+      .join("")}
+    `;
   };
-  createCards();
 
   return `
   <!DOCTYPE html>
@@ -58,33 +123,7 @@ const generateHTML = (teamData: object[]) => {
     <br />
     <main>
       <div class="columns is-centered is-multiline">
-        <div class="box column is-2 m-4 p-0">
-          <div class="card">
-            <div
-              class="card-header columns has-background-info m-0 is-multiline"
-            >
-              <div class="card-header-title column pb-0 is-full">{Name}</div>
-              <div class="card-header-title column pt-0 is-full">{Role}</div>
-            </div>
-            <div class="card-content p-0 has-background-link-light">
-              <ul class="m-0">
-                <li
-                  style="border-bottom: 0.05rem solid #485fc7"
-                  class="is-size-7 p-3"
-                >
-                  ID: {EID}
-                </li>
-                <li
-                  style="border-bottom: 0.05rem solid #485fc7"
-                  class="is-size-7 p-3"
-                >
-                  Email: {Email}
-                </li>
-                <li class="is-size-7 p-3">Github/School: {content}</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        ${createCards(employees)}
       </div>
     </main>
   </body>
